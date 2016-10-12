@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Document</title>
+	<link rel="stylesheet" href="style/swiper-3.3.1.min.css">
+	<style type="text/css">
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		html,body,.swiper-wrapper{
+			height:100%;
+		}
+		.swiper-container{
+			width:100%;
+			height:100%;
+		}
+		.swiper-slide{
+			height:100%;
+		}
+		.red{
+			background-color: red;
+		}
+		.yellow{
+			background-color: yellow;
+		}
+		.blue{
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide red">
+				<button>计算</button>
+				<h1 class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">第一页</h1>
+			</div>
+			<div class="swiper-slide blue">
+				<h1 class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">第二页</h1>
+			</div>
+			<div class="swiper-slide yellow">
+				<h1 class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">第三页</h1>
+				<a href="http://baidu.com">跳转到百度</a>
+			</div>
+		</div>
+		<div class="swiper-pagination"></div>
+	</div>
+
+	<script src="script/sea.js"></script>
+	<script>
+		seajs.config({
+			"alias":{
+				"swiper":"./myScript/swiper-3.3.1.min.js"
+			}
+		})
+
+		seajs.use("jquery",function(){
+			$("button").click(function(){
+				alert("hehe")
+			})
+		})
+
+		seajs.use("swiper",function(){
+			var mySwiper = new Swiper('.swiper-container', {
+				// direction: 'vertical',
+				pagination : '.swiper-pagination',
+				autoplay: 3000,//可选选项，自动滑动
+				loop:true
+			})
+		})
+	</script>
+</body>
+</html>
